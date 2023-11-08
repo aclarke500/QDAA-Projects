@@ -63,7 +63,7 @@ bullshit_words = ["to", "the", "and", "a", "my", "qdaa", "that", "have", "this",
                   ]
 
 word_dict = sort_dict_by_value(count_words_in_strings(responses))
-word_dict = combine_opportunities(word_dict)
+word_dict = combine_opportunities(word_dict) # combine opportunities and opportunity into one word
 word_dict = sort_dict_by_value(word_dict)
 word_dict = remove_words_from_dict(bullshit_words, word_dict)
 
