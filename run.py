@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import re
-from lib import clean_strings, count_sentences_with_special_words, count_words_in_strings, sort_dict_by_value, remove_words_from_dict, combine_opportunities
+from lib import clean_strings, count_sentences_with_special_words, count_words_in_strings, sort_dict_by_value, remove_words_from_dict, combine_opportunities, combine_projects
 from wordcloud import WordCloud
 
 df = pd.read_csv('data.csv')
@@ -43,11 +43,11 @@ program_counts = [
     len(eng_not_found),
 ]
 
-plt.bar(programs, program_counts, color='red')
-plt.title("Program Distribution at QDAA")
-plt.xlabel("Programs")
-plt.ylabel("Number of people")
-plt.show()
+# plt.bar(programs, program_counts, color='red')
+# plt.title("Program Distribution at QDAA")
+# plt.xlabel("Programs")
+# plt.ylabel("Number of people")
+# plt.show()
 
 # why do people want to be in QDAA?
 
@@ -59,11 +59,12 @@ responses = clean_strings(responses.tolist())
 
 # remove bullshit words
 bullshit_words = ["to", "the", "and", "a", "my", "qdaa", "that", "have", "this", "want", "with", "will", "would", "about"
-                  "member", "more", "also", "from", "like", "general", "world", "people", "club","into", "about", "member", "believe"
+                  "member", "more", "also", "from", "like", "general", "world", "people", "club","into", "about", "member", "believe", "being", "because","through", "which","been",
                   ]
 
 word_dict = sort_dict_by_value(count_words_in_strings(responses))
 word_dict = combine_opportunities(word_dict) # combine opportunities and opportunity into one word
+word_dict = combine_projects(word_dict) # combine projects and project into one word
 word_dict = sort_dict_by_value(word_dict)
 word_dict = remove_words_from_dict(bullshit_words, word_dict)
 

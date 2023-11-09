@@ -58,6 +58,22 @@ def combine_opportunities(word_dict):
 
     return word_dict
 
+
+def combine_projects(word_dict):
+    # Initialize the base count with the count of 'opportunity' or 0 if it doesn't exist
+    base_count = word_dict.get('project', 0)
+    
+    # Add the count of 'opportunities' to 'opportunity' if it exists
+    if 'projects' in word_dict:
+        base_count += word_dict['projects']
+        # Remove the plural form from the dictionary
+        del word_dict['projects']
+    
+    # Set the updated count for 'opportunity'
+    word_dict['project'] = base_count
+
+    return word_dict
+
 def count_sentences_with_special_words(special_words, all_sentences):
     count = 0
     not_found = [] # keep track of people not in program
