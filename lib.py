@@ -1,6 +1,16 @@
 import re
 from collections import Counter
 
+# words for seperation
+program_words={
+    "eng" : ["Engineering", "engineering", "Eng", "eng", "engineer"],
+    "commerce" : ["Commerce", "commerce", "business", "BCom"],
+    "compsci" : ["Computing", "Computer Science", "Computer science", "computer science", "computer Science", "computing", "Computing Science", "computing science", "Computing science", "computing Science", "compsci", "Compsci", "cs", "CS", "BCmpH", 'COCA']
+}
+eng_words = ["Engineering", "engineering", "Eng", "eng", "engineer"]
+commerce_words = ["Commerce", "commerce", "business", "BCom"]
+compsci_words = ["Computing", "Computer Science", "Computer science", "computer science", "computer Science", "computing", "Computing Science", "computing science", "Computing science", "computing Science", "compsci", "Compsci", "cs", "CS", "BCmpH", 'COCA']
+
 def clean_strings(strings):
     # Compile a regular expression pattern for non-letter characters excluding spaces
     pattern = re.compile('[^a-z\s]+')

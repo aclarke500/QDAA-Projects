@@ -1,13 +1,13 @@
 import pandas as pd
 
 def get_indexes_of_programs(special_words, all_sentences):
-    found = [0]*len(all_sentences)
+    found = [False]*len(all_sentences)
 
     for i in range(len(all_sentences)):
         sentence = all_sentences[i]
         # Check if any of the special words are in the sentence
         if any(special_word in sentence for special_word in special_words):
-            found[i] = 1
+            found[i] = True
 
     return found
 
